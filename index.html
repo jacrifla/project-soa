@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Lançamentos de Filmes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Blog de Lançamentos de Filmes</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cinema">Em Cartaz</a></li>
+                <li><a href="#streaming">Lançamentos</a></li>
+                <li><a href="#calendario">Calendário</a></li>
+                <li><button id="loginBtn">Login</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="login" style="display: none;">
+            <h2>Login</h2>
+            <form>
+                <div class="input-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+        <section id="home">
+            <h2>Últimas Notícias</h2>
+        </section>
+        <section id="cinema">
+            <h2>Filmes em Cartaz</h2>
+            <div id="movieGrid" class="movie-grid"></div>
+        </section>        
+        
+        <section id="streaming">
+            <h2>Lançamentos em Streamings</h2>
+        </section>
+        <section id="calendario">
+            <h2>Calendário de Estreias de Filmes</h2>
+            <div id="calendar"></div>
+        </section>
+        
+    </main>
+    <footer>
+        <p>&copy; 2024 Blog de Lançamento de Filmes.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
