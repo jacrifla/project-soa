@@ -9,79 +9,8 @@ body {
     padding: 0;
 }
 
-.fixed-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
 main {
-    margin-top: 140px;
-}
-
-
-header {
-    background-color: var(--cor-fundo);
-    color: var(--cor-letra-back-footer);
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-}
-
-.header-area {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-/* Estilo para o campo de pesquisa */
-.search-container {
-    float: right;
-}
-
-.search-container input[type=text] {
-    padding: 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 17px;
-    transition: box-shadow 0.3s;
-}
-
-.search-container input[type=text]:focus {
-    outline: none;
-    box-shadow: 0 0 5px var(--cor-fundo);
-}
-
-.search-container button {
-    padding: 6px 10px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: var(--cor-letra-back-footer);
-    text-decoration: none;
-}
-
-main {
-    padding: 20px;
+    padding: 170px 30px 70px 30px;
 }
 
 section {
@@ -114,7 +43,7 @@ footer {
 }
 
 .trailer-button:hover {
-    background-color: #0056b3;
+    background-color: #003d7e;
 }
 
 
@@ -133,4 +62,42 @@ footer {
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.movie-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
+    gap: 20px;
+}
+
+.movie-item {
+    padding: 1em 0.75em;
+    background-color: #f5faff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie-item:hover {
+    transform: translateY(-5px);
+}
+
+.movie-item-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+    flex-grow: 1;
+}
+
+/* Adiciona sublinhado quando passa o mouse sobre o item da lista */
+.movie-list li:hover {
+    text-decoration: underline;
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
 }
