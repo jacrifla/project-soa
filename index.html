@@ -7,35 +7,27 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1>Blog de Lançamentos de Filmes</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#cinema">Em Cartaz</a></li>
-                <li><a href="#streaming">Lançamentos</a></li>
-                <li><a href="#calendario">Calendário</a></li>
-                <li><button id="loginBtn">Login</button></li>
-            </ul>
-        </nav>
+        <div class="header-area">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cinema">Em Cartaz</a></li>
+                    <li><a href="#streaming">Lançamentos</a></li>
+                    <li><a href="#calendario">Calendário</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <input type="text" placeholder="Pesquisar...">
+                <button type="submit">Buscar</button>
+            </div>
+        </div>
     </header>
     <main>
-        <section id="login" style="display: none;">
-            <h2>Login</h2>
-            <form>
-                <div class="input-group">
-                    <label for="username">Usuário:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit">Entrar</button>
-            </form>
-        </section>
+        
         <section id="home">
-            <h2>Últimas Notícias</h2>
+            
         </section>
         <section id="cinema">
             <h2>Filmes em Cartaz</h2>
