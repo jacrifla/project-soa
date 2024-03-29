@@ -24,35 +24,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         movieTitle.textContent = movie.title;
                         movieItem.appendChild(movieTitle);
     
-                        const trailerButton = document.createElement('button');
-                        trailerButton.textContent = 'Assistir Trailer';
-                        trailerButton.classList.add('trailer-button');
-                        trailerButton.addEventListener('click', function() {
-                            getYouTubeTrailer(movie.title, youtubeApiKey)
-                                .then(trailerId => {
-                                    if (trailerId) {
-                                        window.open(`https://www.youtube.com/watch?v=${trailerId}`, '_blank');
-                                    } else {
-                                        alert('Trailer não encontrado.');
-                                    }
-                                })
-                                .catch(error => {
-                                    console.error('Erro ao obter trailer do YouTube:', error);
-                                    alert('Erro ao carregar o trailer.');
-                                });
+                        // Adicionando evento de clique para redirecionar para a página de detalhes
+                        movieItem.addEventListener('click', function() {
+                            window.location.href = `detalhes.html?movieId=${movie.id}`;
                         });
-                        movieItem.appendChild(trailerButton);
     
                         movieGrid.appendChild(movieItem);
                     });
                 } else {
-                   
                     movieGrid.innerHTML = '<p>Nenhum filme encontrado.</p>';
                 }
             })
             .catch(error => {
                 console.error('Erro ao carregar filmes:', error);
-                
                 movieGrid.innerHTML = '<p>Ocorreu um erro ao carregar os filmes.</p>';
             });
     }
