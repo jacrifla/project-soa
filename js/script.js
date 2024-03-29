@@ -125,74 +125,9 @@ document.addEventListener("DOMContentLoaded", function () {
             return null;
         }
     }
-
-    
-const movies = [
-    { title: 'Filme 1', releaseDate: '2024-04-10' },
-    { title: 'Filme 2', releaseDate: '2024-04-15' },
-    { title: 'Filme 3', releaseDate: '2024-04-20' },
-    
-];
-
-function setupCalendar() {
-    const calendarContainer = document.getElementById('calendar');
-    
-    const table = document.createElement('table');
-    
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
-    
-    const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-    const headerRow = document.createElement('tr');
-    daysOfWeek.forEach(day => {
-        const th = document.createElement('th');
-        th.textContent = day;
-        headerRow.appendChild(th);
-    });
-    table.appendChild(headerRow);
-    
-    const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    let date = 1;
-    for (let i = 0; i < 6; i++) { 
-        const row = document.createElement('tr');
-        for (let j = 0; j < 7; j++) { 
-            if (i === 0 && j < firstDayOfMonth) {
-                const cell = document.createElement('td');
-                row.appendChild(cell);
-            } else if (date > daysInMonth) {
-                break;
-            } else {
-                const cell = document.createElement('td');
-                cell.textContent = date;
-                const releaseMovies = movies.filter(movie => {
-                    const releaseDate = new Date(movie.releaseDate);
-                    return releaseDate.getFullYear() === currentYear && releaseDate.getMonth() === currentMonth && releaseDate.getDate() === date;
-                });
-                if (releaseMovies.length > 0) {
-                    const moviesList = document.createElement('ul');
-                    releaseMovies.forEach(movie => {
-                        const movieItem = document.createElement('li');
-                        movieItem.textContent = movie.title;
-                        moviesList.appendChild(movieItem);
-                    });
-                    cell.appendChild(moviesList);
-                }
-                row.appendChild(cell);
-                date++;
-            }
-        }
-        table.appendChild(row);
-    }
-    
-    calendarContainer.appendChild(table);
-}
-
-    
+ 
 
     loadMovies();
     loadPopularMovies();
     loadStreamingReleases()
-    setupCalendar()
 });
