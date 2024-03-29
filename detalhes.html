@@ -5,41 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Filme</title>
     <link rel="stylesheet" href="css/detalhes.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    <header id="header">
-        <h1>Blog de Lançamentos de Filmes</h1>
-        <div class="header-area">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">Em Cartaz</a></li>
-                    <li><a href="index.html">Lançamentos</a></li>
-                    <li><a href="index.html">Calendário</a></li>
-                </ul>
-            </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Pesquisar...">
-                <button type="submit">Buscar</button>
-            </div>
-        </div>
-    </header>
-    <div id="movieDetails">
-        <div class="movie-info">
-            <img src="" alt="Cartaz do Filme" id="moviePoster">
-            <div class="movie-details">
-                <h2 id="movieTitle"></h2>
-                <p id="movieOverview"></p>
-                <p><strong>Data de Estreia:</strong> <span id="releaseDate"></span></p>
-            </div>
-        </div>
-        <div>
-            <textarea id="comment" placeholder="Digite seu comentário"></textarea>
-            <button id="submitComment">Enviar</button>
-        </div>
-    </div>
     
+        <header id="header">
+            <h1>Blog de Lançamentos de Filmes</h1>
+            <div class="header-area">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Em Cartaz</a></li>
+                        <li><a href="index.html">Lançamentos</a></li>
+                    </ul>
+                </nav>
+                <div class="search-container">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button type="submit">Buscar</button>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+        <a href="javascript:history.back()" id="backLink">Voltar</a>
+        <main id="movieDetails">
+            <div class="movie-info">
+                <img src="" alt="Cartaz do Filme" id="moviePoster">
+                <div class="movie-details">
+                    <h2 id="movieTitle"></h2>
+                    <p><strong>Data de Estreia:</strong> <span id="releaseDate"></span></p>
+                    <p id="movieOverview"></p>
+                </div>
+            </div>
+            <div>
+                <textarea id="comment" placeholder="Digite seu comentário"></textarea>
+                <button id="submitComment">Enviar</button>
+            </div>
+        </main>
+    </div>
 
     <script src="js/detalhes.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>
