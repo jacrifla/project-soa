@@ -20,14 +20,39 @@ document.addEventListener("DOMContentLoaded", function () {
                         movieImage.alt = movie.title;
                         movieItem.appendChild(movieImage);
     
+                        const movieDetails = document.createElement('div');
+                        movieDetails.classList.add('movie-details');
+    
                         const movieTitle = document.createElement('h3');
                         movieTitle.textContent = movie.title;
-                        movieItem.appendChild(movieTitle);
-    
-                        // Adicionando evento de clique para redirecionar para a página de detalhes
-                        movieItem.addEventListener('click', function() {
+                        movieTitle.addEventListener('click', function() {
                             window.location.href = `detalhes.html?movieId=${movie.id}`;
                         });
+                        movieImage.addEventListener('click', function() {
+                            window.location.href = `detalhes.html?movieId=${movie.id}`;
+                        });
+                        movieDetails.appendChild(movieTitle);
+    
+                        const trailerButton = document.createElement('button');
+                        trailerButton.textContent = 'Assistir Trailer';
+                        trailerButton.classList.add('trailer-button');
+                        trailerButton.addEventListener('click', function() {
+                            getYouTubeTrailer(movie.title, youtubeApiKey)
+                                .then(trailerId => {
+                                    if (trailerId) {
+                                        window.open(`https://www.youtube.com/watch?v=${trailerId}`, '_blank');
+                                    } else {
+                                        alert('Trailer não encontrado.');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Erro ao obter trailer do YouTube:', error);
+                                    alert('Erro ao carregar o trailer.');
+                                });
+                        });
+                        movieDetails.appendChild(trailerButton);
+    
+                        movieItem.appendChild(movieDetails);
     
                         movieGrid.appendChild(movieItem);
                     });
@@ -40,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 movieGrid.innerHTML = '<p>Ocorreu um erro ao carregar os filmes.</p>';
             });
     }
-    
 
     function loadPopularMovies() {
         const popularUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${tmdbApiKey}&language=pt-BR&page=1`;
