@@ -25,18 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
     
                         const movieTitle = document.createElement('h3');
                         movieTitle.textContent = movie.title;
-                        movieTitle.addEventListener('click', function() {
-                            window.location.href = `detalhes.html?movieId=${movie.id}`;
-                        });
-                        movieImage.addEventListener('click', function() {
-                            window.location.href = `detalhes.html?movieId=${movie.id}`;
-                        });
                         movieDetails.appendChild(movieTitle);
     
                         const trailerButton = document.createElement('button');
                         trailerButton.textContent = 'Assistir Trailer';
                         trailerButton.classList.add('trailer-button');
-                        trailerButton.addEventListener('click', function() {
+                        trailerButton.addEventListener('click', function(event) {
+                            event.stopPropagation();
                             getYouTubeTrailer(movie.title, youtubeApiKey)
                                 .then(trailerId => {
                                     if (trailerId) {
@@ -53,7 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         movieDetails.appendChild(trailerButton);
     
                         movieItem.appendChild(movieDetails);
-    
+                        movieItem.addEventListener('click', function() {
+                            window.location.href = `detalhes.html?movieId=${movie.id}`;
+                        });
+
                         movieGrid.appendChild(movieItem);
                     });
                 } else {
@@ -86,12 +84,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     data.results.forEach(movie => {
                         const movieItem = document.createElement('li');
                         movieItem.textContent = movie.title;
+                        movieItem.dataset.movieId = movie.id;
+                        movieItem.classList.add('highlights-list-item');
                         movieList.appendChild(movieItem);
                     });
     
                     newsSection.appendChild(movieList);
+
+                    movieList.addEventListener('click', function(event) {
+                        const movieId = event.target.dataset.movieId;
+                        if (movieId) {
+                            window.location.href = `detalhes.html?movieId=${movieId}`;
+                        }
+                    });
                 } else {
-                
                     newsSection.innerHTML = '<p>Nenhum filme em alta encontrado.</p>';
                 }
             })
@@ -120,10 +126,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     data.results.forEach(movie => {
                         const movieItem = document.createElement('li');
                         movieItem.textContent = movie.title;
+                        movieItem.dataset.movieId = movie.id; 
+                        movieItem.classList.add('streaming-list-item');
                         movieList.appendChild(movieItem);
                     });
     
                     streamingSection.appendChild(movieList);
+
+                    movieList.addEventListener('click', function(event) {
+                        const movieId = event.target.dataset.movieId;
+                        if (movieId) {
+                            window.location.href = `detalhes.html?movieId=${movieId}`;
+                        }
+                    });
                 } else {
                     streamingSection.innerHTML = '<p>Nenhum lançamento nos streamings encontrado.</p>';
                 }
@@ -133,10 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 streamingSection.innerHTML = '<p>Ocorreu um erro ao carregar os lançamentos nos streamings.</p>';
             });
     }
-    
-    
-    
-
     
     async function getYouTubeTrailer(movieTitle, apiKey) {
         const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(movieTitle)}%20trailer&type=video&key=${apiKey}`);
@@ -149,9 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
             return null;
         }
     }
- 
-
+    
     loadMovies();
     loadPopularMovies();
-    loadStreamingReleases()
+    loadStreamingReleases();
 });
