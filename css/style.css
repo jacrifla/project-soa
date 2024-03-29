@@ -9,15 +9,57 @@ body {
     padding: 0;
 }
 
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+
 header {
     background-color: var(--cor-fundo);
     color: var(--cor-letra-back-footer);
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+    width: 100%;
 }
 
-header h1 {
-    margin: 0;
+.header-area {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Estilo para o campo de pesquisa */
+.search-container {
+    float: right;
+}
+
+.search-container input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 17px;
+    transition: box-shadow 0.3s;
+}
+
+.search-container input[type=text]:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--cor-fundo);
+}
+
+.search-container button {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 nav ul {
@@ -56,64 +98,6 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-/* Adicionando estilos para o formulÃ¡rio de login */
-
-#login {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 5px;
-}
-
-#login h2 {
-    margin-bottom: 20px;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #555;
-}
-
-#loginBtn {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#loginBtn:hover {
-    background-color: #555;
-}
-
 
 .trailer-button {
     padding: 8px 16px;
