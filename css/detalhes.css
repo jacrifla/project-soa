@@ -1,0 +1,75 @@
+/* Adicione este código ao seu arquivo CSS (detalhes.css) */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#movieDetails {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#comment {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#submitComment {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submitComment:hover {
+    background-color: #0056b3;
+}
+
+/* Adicione estas regras de estilo ao seu arquivo CSS */
+
+#movieDetails {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.movie-info {
+    display: flex;
+}
+
+.movie-info img {
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+.movie-details {
+    flex: 1;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 10px;
+}
