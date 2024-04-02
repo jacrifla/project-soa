@@ -1,7 +1,10 @@
 <?php
+
+// defined('BASEPATH') OR exit('No direct script access allowed');
 // Verifica se os dados do formulário foram enviados via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["filme_id"], $_POST["usuario_nome"], $_POST["comentario"])) {
     // Recebe os dados do formulário
+    echo "entrou no post";
     $filme_id = $_POST["filme_id"];
     $usuario_nome = $_POST["usuario_nome"];
     $comentario = $_POST["comentario"];
@@ -31,6 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["filme_id"], $_POST["us
     // Fecha a declaração e a conexão
     $stmt->close();
     $conn->close();
+
+    header("Location: ../detalhes.html?movieId=" . $filme_id);
+    exit(); 
 
     // Exemplo de resposta
     echo "Comentário enviado com sucesso!";
@@ -64,14 +70,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["filme_id"], $_POST["us
     // Obtem o resultado
     $result = $stmt->get_result();
 
-    // Exibe os comentários
-    echo "<h3>Comentários do Filme ".$filme_id.":</h3>";
+    $resultados = array();
+
     while ($row = $result->fetch_assoc()) {
-        echo "Usuário: " . $row['usuario_nome'] . "<br>";
-        echo "Comentário: " . $row['comentario'] . "<br>";
-        echo "Data de Publicação: " . $row['data_publicacao'] . "<br>";
-        echo "<hr>";
+        $resultados[] = $row;
     }
+    
+    // Converter o array em JSON
+    echo json_encode($resultados);
+
+    
 
     // Fecha a declaração e a conexão
     $stmt->close();

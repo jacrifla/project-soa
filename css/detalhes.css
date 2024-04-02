@@ -13,14 +13,14 @@ h1, h2 {
     text-align: center;
 }
 
-#comment {
+#comentario {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
     margin-bottom: 10px;
 }
 
-#submitComment {
+#botao_mostrar {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -29,7 +29,7 @@ h1, h2 {
     cursor: pointer;
 }
 
-#submitComment:hover {
+#botao_mostrar:hover {
     background-color: #0056b3;
 }
 
@@ -84,7 +84,7 @@ button {
     text-decoration: underline;
 }
 
-#comment {
+#comentario {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -92,6 +92,13 @@ button {
     border-radius: 5px;
     box-sizing: border-box;
     resize: vertical;
+}
+
+#usuario_nome{
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 #submitComment {
@@ -108,7 +115,23 @@ button {
     background-color: #45a049;
 }
 
-#comment:focus {
+#comentario:focus, #usuario_nome:focus {
     border-color: #007bff; 
     outline: none;
+}
+
+.d-none{
+    display: none;
+}
+.d-block{
+    display: block;
+}
+.dataPub{
+    font-size: 10px;
+}
+.comentario{
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px 13px;
+    margin: 10px 0;
 }

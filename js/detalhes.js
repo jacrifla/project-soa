@@ -21,6 +21,31 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    function fetchComentarios(filme_id){
+            fetch('php/comentario.php?filme_id=' + filme_id)
+            .then(response => response.json())
+            .then(data => {
+                let comentariosList = document.getElementById('comentariosList');
+                data.forEach(comentario =>{
+                    let novoComentario = document.createElement("div");
+                    novoComentario.innerHTML = `
+                        <div class="comentario">
+                            <h3>${comentario.usuario_nome}</h3>
+                            <p>${comentario.comentario}</p>
+                            <p class="dataPub">${comentario.data_publicacao}</p>
+                        </div>
+                    `
+                    
+                    comentariosList.appendChild(novoComentario);
+                })
+            })
+            .catch(error => {
+                console.error('Erro ao obter comentários:', error);
+            });
+        
+        
+    }
+
     // Função para preencher os detalhes do filme na página
     function fillMovieDetails(movieDetails) {
         const moviePosterElement = document.getElementById('moviePoster');
@@ -34,6 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const releaseDateElement = document.getElementById('releaseDate');
         releaseDateElement.textContent = movieDetails.releaseDate;
+        
+        const filmeId = document.getElementById('filme_id');
+        filmeId.textContent = movieId;
+
+        fetchComentarios(movieId);
     }
 
     // Exibir detalhes do filme na página
@@ -47,12 +77,26 @@ document.addEventListener("DOMContentLoaded", function () {
             movieDetailsElement.innerHTML = '<p>Ocorreu um erro ao carregar os detalhes do filme.</p>';
         });
 
+    const botao_mostrar = document.getElementById('botao_mostrar');
+    botao_mostrar.addEventListener('click', function () {
+        var comentariosList = document.getElementById("comentariosList");
+       //console.log(comentariosList.classList)
+        if (comentariosList.classList.contains("d-none")) {
+            comentariosList.classList.add("d-block");
+            comentariosList.classList.remove("d-none");
+        } else {
+            comentariosList.classList.add("d-none");
+            comentariosList.classList.remove("d-block");
+        }
+    });
+
     // Lógica para enviar comentário sobre o filme
     const submitButton = document.getElementById('submitComment');
+    
     submitButton.addEventListener('click', function () {
-        const comment = document.getElementById('comment').value;
+        document.getElementById('filme_id').value = movieId;
         // Enviar o comentário para o servidor ou fazer outra ação necessária
         // Exemplo:
-        console.log('Comentário:', comment);
+        //console.log('Comentário:', comment);
     });
 });

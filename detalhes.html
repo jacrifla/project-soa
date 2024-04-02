@@ -37,8 +37,20 @@
                 </div>
             </div>
             <div>
-                <textarea id="comment" placeholder="Digite seu comentário"></textarea>
-                <button id="submitComment">Enviar</button>
+                <form id="formComentario" action="http://localhost:80/project-soa/php/comentario.php" method="post">
+                    <input type="hidden" name="filme_id" id="filme_id" value="123">
+                    <br>
+                    <label for="usuario_nome">Nome:</label><br>
+                    <input type="text" id="usuario_nome" name="usuario_nome"><br>
+                    <label for="comentario">Comentário:</label><br>
+                    <textarea id="comentario" name="comentario" rows="4" required placeholder="Digite seu comentário"></textarea><br>
+                    <button type="submit" id="submitComment">Enviar Comentário</button>
+                </form>
+            </div>
+            <div class="comentarios-container">
+                <button id="botao_mostrar">Mostrar Comentários</button>
+                <div class="d-none"  id="comentariosList">
+                </div>
             </div>
         </main>
     </div>
