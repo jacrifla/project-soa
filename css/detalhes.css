@@ -8,29 +8,8 @@ body {
     padding: 0 2em;
 }
 
-
 h1, h2 {
     text-align: center;
-}
-
-#comentario {
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-}
-
-#botao_mostrar {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#botao_mostrar:hover {
-    background-color: #0056b3;
 }
 
 #movieDetails {
@@ -62,48 +41,14 @@ h1, h2 {
     flex: 1;
 }
 
-textarea {
-    width: 100%;
-    margin-top: 10px;
-}
 
 button {
-    margin-top: 10px;
+    margin-top: 1.5em;
     color: white;
 }
 
-#backLink {
-    margin-top: 2em;
-    display: block;
-    margin-bottom: 20px;
-    color: blue;
-    text-decoration: none;
-}
-
-#backLink:hover {
-    text-decoration: underline;
-}
-
-#comentario {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    resize: vertical;
-}
-
-#usuario_nome{
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#submitComment {
-    background-color: #4CAF50;
-    color: white;
+#submitComment,
+#botao_mostrar {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -111,27 +56,55 @@ button {
     transition: background-color 0.3s;
 }
 
-#submitComment:hover {
-    background-color: #45a049;
+#submitComment {
+    background-color: #4CAF50;
 }
 
-#comentario:focus, #usuario_nome:focus {
-    border-color: #007bff; 
+#botao_mostrar {
+    background-color: #007bff;
+}
+
+#submitComment:hover,
+#botao_mostrar:hover {
+    background-color: #45a049;
+}
+#usuario_nome {
+    padding: 0.7em;
+}
+
+#comentario:focus,
+#usuario_nome:focus {
+    border-color: #007bff;
     outline: none;
 }
 
-.d-none{
+.d-none {
     display: none;
 }
-.d-block{
+
+.d-block {
     display: block;
 }
-.dataPub{
+
+.dataPub {
     font-size: 10px;
 }
-.comentario{
+
+.comentario {
     background-color: white;
     border-radius: 5px;
     padding: 2px 13px;
     margin: 10px 0;
+}
+
+#formComentario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.botoes-container {
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
 }

@@ -8,24 +8,19 @@
     <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    
-        <header id="header">
-            <h1>Blog de Lançamentos de Filmes</h1>
-            <div class="header-area">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html">Em Cartaz</a></li>
-                        <li><a href="index.html">Lançamentos</a></li>
-                    </ul>
-                </nav>
-                <div class="search-container">
-                    <input type="text" placeholder="Pesquisar...">
-                    <button type="submit">Buscar</button>
-                </div>
-            </div>
-        </header>
-        <div class="container">
+    <header id="header">
+        <h1>Blog de Lançamentos de Filmes</h1>
+        <div class="header-area">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Em Cartaz</a></li>
+                    <li><a href="index.html">Lançamentos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
         <a href="javascript:history.back()" id="backLink">Voltar</a>
         <main id="movieDetails">
             <div class="movie-info">
@@ -44,13 +39,14 @@
                     <input type="text" id="usuario_nome" name="usuario_nome"><br>
                     <label for="comentario">Comentário:</label><br>
                     <textarea id="comentario" name="comentario" rows="4" required placeholder="Digite seu comentário"></textarea><br>
-                    <button type="submit" id="submitComment">Enviar Comentário</button>
+                    <div class="botoes-container">
+                        <button type="submit" id="submitComment">Enviar Comentário</button>
+                        <button id="botao_mostrar">Mostrar Comentários</button>
+                    </div>
                 </form>
             </div>
             <div class="comentarios-container">
-                <button id="botao_mostrar">Mostrar Comentários</button>
-                <div class="d-none"  id="comentariosList">
-                </div>
+                <div class="d-none"  id="comentariosList"></div>
             </div>
         </main>
     </div>
